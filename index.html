@@ -1,9 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <link rel="stylesheet" href="styles.css">
+    <head>      
         <h1>Cassette Beasts Wiki</h1>
-        <div contenteditable="true">click here to edit this text</div>
-        <p contenteditable="false">This text cannot be editted.</p>
     </head>
-    <body>First page</body>
+    <body>
+         <div id="name">Name</div>
+ 
+        <script>
+        const nameElement = document.getElementById('name');
+ 
+
+            const savedName = localStorage.getItem('Name');
+            if (savedName) { 
+                nameElement.innerText = savedName;
+            }
+ 
+            nameElement.contentEditable = 'true';
+ 
+
+            nameElement.addEventListener('blur', () => {
+                const newName = bioElement.innerText;
+                localStorage.setItem('Name', newName); // Save to localStorage
+                console.log('name saved:', newName);
+            });
+        </script>
+        <div id="userBio">Information</div>
+ 
+        <script>
+        const bioElement = document.getElementById('userBio');
+ 
+
+            const savedBio = localStorage.getItem('userBio');
+            if (savedBio) { 
+                bioElement.innerText = savedBio;
+            }
+ 
+            bioElement.contentEditable = 'true';
+ 
+
+            bioElement.addEventListener('blur', () => {
+                const newBio = bioElement.innerText;
+                localStorage.setItem('userBio', newBio); // Save to localStorage
+                console.log('Bio saved:', newBio);
+            });
+        </script>
+    </body>
 </html>
